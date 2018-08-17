@@ -96,7 +96,7 @@ function auditItem(character, itemId) {
       missingGems = true;
     }
 
-    return '' + itemLevel + ' ' + (missingEnchant ? settings['MISSING_ENCHANT_SYMBOL'] : "") + (missingGems ? settings['MISSING_GEM_SYMBOL'] : "");
+    return '' + itemLevel + (missingEnchant ? settings['MISSING_ENCHANT_SYMBOL'] : "") + (missingGems ? settings['MISSING_GEM_SYMBOL'] : "");
   } else {
     return '';
   }
