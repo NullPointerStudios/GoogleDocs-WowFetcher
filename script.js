@@ -59,7 +59,8 @@ function getItems(realmName, characterName) {
     var itemInfo = auditItem(character, x);
     if (itemInfo != null) {
       character_array.push(itemInfo);
-      if (itemInfo.indexOf(settings['MISSING_ENCHANT_SYMBOL']) != -1) {
+      if (itemInfo.indexOf && itemInfo.indexOf(settings['MISSING_ENCHANT_SYMBOL']) != -1)
+      {
         missingEnchants++;
       }
     }
@@ -96,7 +97,12 @@ function auditItem(character, itemId) {
       missingGems = true;
     }
 
-    return '' + itemLevel + (missingEnchant ? settings['MISSING_ENCHANT_SYMBOL'] : "") + (missingGems ? settings['MISSING_GEM_SYMBOL'] : "");
+    if (missingEnchant || missingGems) {
+      return '' + itemLevel + (missingEnchant ? settings['MISSING_ENCHANT_SYMBOL'] : "") + (missingGems ? settings['MISSING_GEM_SYMBOL'] : "");
+    } else {
+      return itemLevel;
+    }
+
   } else {
     return '';
   }
