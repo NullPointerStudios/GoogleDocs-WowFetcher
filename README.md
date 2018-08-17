@@ -44,3 +44,5 @@ getOther(realm, characterName)
 getProgression(realm, characterName)
 
 Each of these functions returns an array. You can then use the transpose function to display those arrays in the spreadsheet.
+
+You can change the region that the api uses by changing the api url to the appropriate region (for EU/Russ/Other)
