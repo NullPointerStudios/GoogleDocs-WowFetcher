@@ -6,9 +6,9 @@ This script provides functions that automatically fetch data from the wow armory
 
 ### Prereqs
 
-You must have your own Wow API key ot use this script.
+You must have your own Wow API key to use this script.
 
-You can get your api key here: https://dev.battle.net/
+You can get an api key here: https://dev.battle.net/
 
 When you have your api key, you can enter it on the "Settings" sheet.
 
@@ -43,4 +43,4 @@ getItems(realm, characterName)
 getOther(realm, characterName)
 getProgression(realm, characterName)
 
-Each of these functions retuens an array. You can then use the transpose function to display those arrays in the spreadsheet.
+Each of these functions returns an array. You can then use the transpose function to display those arrays in the spreadsheet.
