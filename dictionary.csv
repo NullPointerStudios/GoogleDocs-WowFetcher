@@ -1,0 +1,61 @@
+KEY,VALUE
+RACE_1,Human
+RACE_2,Orc
+RACE_3,Dwarf
+RACE_4,Night Elf
+RACE_5,Undead
+RACE_6,Tauren
+RACE_7,Gnome
+RACE_8,Troll
+RACE_9,Goblin
+RACE_10,Blood Elf
+RACE_11,Draenei
+RACE_12,Worgen
+RACE_13,Pandaren
+RACE_14,Pandaren
+RACE_15,Pandaren
+RACE_16,Nightborne
+RACE_17,Highmountain Tauren
+RACE_18,Void Elf
+RACE_19,Lightforged Draenei
+RACE_20,Dark Iron Dwarf
+RACE_21,Mag'har Orc
+CLASS_1,Warrior
+CLASS_2,Paladin
+CLASS_3,Hunter
+CLASS_4,Rogue
+CLASS_5,Priest
+CLASS_6,Death Knight
+CLASS_7,Shaman
+CLASS_8,Mage
+CLASS_9,Warlock
+CLASS_10,Monk
+CLASS_11,Druid
+CLASS_12,Demon Hunter
+SLOT_0,head
+SLOT_1,neck
+SLOT_2,shoulder
+SLOT_4,chest
+SLOT_5,waist
+SLOT_6,legs
+SLOT_7,feet
+SLOT_8,wrist
+SLOT_9,hands
+SLOT_10,finger1
+SLOT_11,finger2
+SLOT_12,trinket1
+SLOT_13,trinket2
+SLOT_14,back
+SLOT_15,mainHand
+SLOT_16,offHand
+PROFESSION_0,Herbalism
+PROFESSION_1,Mining
+PROFESSION_2,Skinning
+PROFESSION_3,Alchemy
+PROFESSION_4,Blacksmithing
+PROFESSION_5,Enchanting
+PROFESSION_6,Engineering
+PROFESSION_7,Inscription
+PROFESSION_8,Jewelcrafting
+PROFESSION_9,Leatherworking
+PROFESSION_10,Tailoring
