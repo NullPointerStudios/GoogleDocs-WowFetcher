@@ -1,0 +1,5 @@
+KEY,VALUE
+API_KEY,<your_api_key_goes_here>
+BASE_URL,https://us.api.battle.net/wow/
+MISSING_ENCHANT_SYMBOL,ᴱ
+MISSING_GEM_SYMBOL,ᴳ
