@@ -16,7 +16,7 @@ When you have your api key, you can enter it on the "Settings" sheet.
 
 The easiest way to start using the script is to clone a preexisting spreadsheet.
 
-You can find my example spreadsheet here:
+You can find my example spreadsheet here: https://docs.google.com/spreadsheets/d/11A_WzSO4Hx4w_bTLh1x18MIDGhjBElI8Yp6iJLGuRKg/edit?usp=sharing
 
 ### Creating your own sheet
 
