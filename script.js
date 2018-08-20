@@ -40,20 +40,20 @@ function getProgressionJSON(realmName, characterName) {
 
 function getItems(realmName, characterName) {
   if (!characterName || !realmName || characterName == '' || realmName == '') {
-    return [];
+    return [''];
   }
-
+  
   var character = getItemsJSON(realmName, characterName);
   var character_array = [];
-
+  
   character_array.push(character.items.averageItemLevelEquipped);
-
+  
   if (character.items.neck && character.items.neck.azeriteItem) {
     character_array.push(character.items.neck.azeriteItem.azeriteLevel);
   } else {
     character_array.push("?")
   }
-
+  
   var missingEnchants = 0;
   for (x = 0; x <= 16; x++) {
     var itemInfo = auditItem(character, x);
@@ -65,24 +65,24 @@ function getItems(realmName, characterName) {
       }
     }
   }
-
+  
   character_array.push(character.audit.emptySockets);
   character_array.push(missingEnchants);
-
+  
   return character_array;
 }
 
 // Returns an array containing all of the info you need to know about an item.
 function auditItem(character, itemId) {
   var itemKey = dictionary['SLOT'][itemId];
-
+  
   if (itemKey == null) {
     return null;
   }
   if (character['items'][itemKey]) {
     var item = character['items'][itemKey];
     var itemLevel = item.itemLevel;
-
+    
     // Check to see if the item is missing any enchants
     var missingEnchant = false;
     if (itemKey == 'mainHand' || itemKey == 'finger1' || itemKey == 'finger2') {
@@ -90,19 +90,19 @@ function auditItem(character, itemId) {
         missingEnchant = true;
       }
     }
-
+    
     // Check to see if the item is missing any gems
     var missingGems = false;
     if (itemId in character.audit.itemsWithEmptySockets) {
       missingGems = true;
     }
-
+    
     if (missingEnchant || missingGems) {
-      return '' + itemLevel + (missingEnchant ? settings['MISSING_ENCHANT_SYMBOL'] : "") + (missingGems ? settings['MISSING_GEM_SYMBOL'] : "");
+    return '' + itemLevel + (missingEnchant ? settings['MISSING_ENCHANT_SYMBOL'] : "") + (missingGems ? settings['MISSING_GEM_SYMBOL'] : "");  
     } else {
-      return itemLevel;
+     return itemLevel;
     }
-
+    
   } else {
     return '';
   }
@@ -111,9 +111,9 @@ function auditItem(character, itemId) {
 // Returns an array containing the data from the other sheet
 function getOther(realmName, characterName) {
   if (!characterName || !realmName || characterName == '' || realmName == '') {
-    return [];
+    return [''];
   }
-
+  
   var character = getProfessionsJSON(realmName, characterName);
   var character_array = getCharacterArray(character);
   var professions_array = getProfessionsArray(character.professions);
@@ -123,11 +123,11 @@ function getOther(realmName, characterName) {
 // Returns an array containing character level/race/class
 function getCharacterArray(character) {
   var character_array = [];
-
+  
   character_array.push(character.level);
   character_array.push(dictionary['RACE'][character.race]);
   character_array.push(dictionary['CLASS'][character.class]);
-
+  
   return character_array;
 }
 
@@ -148,12 +148,12 @@ function getProfessionsArray(professions) {
       }
     }
   }
-
+  
   // If you don't have professions, insert placeholders.
   while (professions_array.length < 4) {
     professions_array.push('0');
   }
-
+  
   for (key in professions.secondary) {
     {
       profession = professions.secondary[key];
@@ -166,7 +166,7 @@ function getProfessionsArray(professions) {
   while (professions_array.length < 5) {
     professions_array.push('x');
   }
-
+  
   return professions_array;
 }
 
@@ -175,18 +175,18 @@ function getProfessionsArray(professions) {
 // The remaining values are kill count strings for the full list of bosses.
 function getProgression(realmName, characterName) {
   if (!characterName || !realmName || characterName == '' || realmName == '') {
-    return [];
+    return [''];
   }
-
+  
   var character = getProgressionJSON(realmName, characterName);
   var progression_array = [];
   var tierNumbers = [0, 0, 0, 0];
-
+  
   var raidList = getRaids();
   for (key in raidList) {
     // Get the raid info
     var raidArray = getRaidArray(character.progression.raids, raidList[key]);
-
+    
     // Iterate over it to get our total kill counts.
     for (boss in raidArray) {
       var bossKillCount = raidArray[boss];
@@ -195,13 +195,13 @@ function getProgression(realmName, characterName) {
           tierNumbers[i] += (bossKillCount[i] > 0 ? 1 : 0);
         }
         progression_array.push(formatKillCount(bossKillCount));
-
+        
       } else {
         progression_array.push('x')
       }
     }
   }
-
+  
   var totalBosses = progression_array.length;
   for (i in tierNumbers) {
     tierNumbers[i] = '' + tierNumbers[i] + '/' + totalBosses;
@@ -215,22 +215,22 @@ function getProgression(realmName, characterName) {
 // Returns a human readable kill count
 function formatKillCount(killcount) {
   return "M:" + killcount.mythic +
-      " H:" + killcount.heroic +
+    " H:" + killcount.heroic +
       " N:" + killcount.normal +
-      " L:" + killcount.lfr;
+        " L:" + killcount.lfr;
 }
 
 // Returns an array containing the kill count for each boss in a raid
 function getRaidArray(characterRaids, raidName) {
   var raid_array = [];
-
+  
   // Look through all raids the character has done to find the one you want.
   for (key in characterRaids) {
     var raid = characterRaids[key];
     if (raid.name != raidName) {
       continue;
     }
-
+    
     // Look theough all of the bosses on the sheet for the one we want.
     // This is done in a less elegant way because we want to maintain order.
     var bosses = getRaidBosses(raidName);
@@ -246,7 +246,7 @@ function getBossKillCount(raid, bossName) {
   for (bossAttempt in raid.bosses) {
     if (raid.bosses[bossAttempt].name == bossName) {
       // We have found the correct boss!
-
+      
       var killCount = {
         mythic: raid.bosses[bossAttempt].mythicKills,
         heroic: raid.bosses[bossAttempt].heroicKills,
@@ -277,7 +277,7 @@ function getRaidBosses(raidName) {
 function getProgressionHeaders() {
   var headers = ['Mythic', 'Heroic', 'Normal', 'LFR'];
   var raids = getRaids();
-
+  
   for (r in raids) {
     var raidName = raids[r]
     var bosses = getRaidBosses(raidName);
@@ -286,7 +286,7 @@ function getProgressionHeaders() {
       headers.push(bossName);
     }
   }
-
+  
   return headers;
 }
 
@@ -325,10 +325,10 @@ function getDictionary() {
         if (key == '') {
           break;
         }
-
+        
         base_key = key.split('_')[0];
         id = key.split('_')[1];
-
+        
         if (dict[base_key] == null) {
           dict[base_key] = {};
         }
@@ -351,11 +351,11 @@ function getRaidInfo() {
       for (x = 0; x < values.length; x++) {
         var key = values[x][0];
         var val = values[x][1];
-
+        
         if (key == '') {
           break;
         }
-
+        
         if (raids[key] == null) {
           raids[key] = [];
         }
