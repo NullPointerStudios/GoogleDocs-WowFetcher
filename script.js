@@ -98,9 +98,9 @@ function auditItem(character, itemId) {
     }
     
     if (missingEnchant || missingGems) {
-    return '' + itemLevel + (missingEnchant ? settings['MISSING_ENCHANT_SYMBOL'] : "") + (missingGems ? settings['MISSING_GEM_SYMBOL'] : "");  
+      return '' + itemLevel + (missingEnchant ? settings['MISSING_ENCHANT_SYMBOL'] : "") + (missingGems ? settings['MISSING_GEM_SYMBOL'] : "");  
     } else {
-     return itemLevel;
+      return itemLevel;
     }
     
   } else {
@@ -140,10 +140,10 @@ function getProfessionsArray(professions) {
   for (key in professions.primary) {
     profession = professions.primary[key];
     // Check to see if it's a primary profession
-    for (id in dictionary['PROFESSION']) {
-      if (profession.name == dictionary['PROFESSION'][id]) {
+    for (id in dictionary['PRIMARYPROFESSION']) {
+      if (profession.name == dictionary['PRIMARYPROFESSION'][id]) {
         // It's in the valid profession list
-        professions_array.push(profession.name);
+        professions_array.push(profession.name.replace('Kul Tiran ',''));
         professions_array.push(profession.rank);
       }
     }
@@ -151,22 +151,26 @@ function getProfessionsArray(professions) {
   
   // If you don't have professions, insert placeholders.
   while (professions_array.length < 4) {
-    professions_array.push('0');
+    professions_array.push('');
   }
   
-  for (key in professions.secondary) {
+  for (id in dictionary['SECONDARYPROFESSION']) {
+    var professionFound = false;
+    for (key in professions.secondary) {
     {
       profession = professions.secondary[key];
-      if (profession.name == 'Cooking') {
-        professions_array.push(profession.rank);
+      
+        if (profession.name == dictionary['SECONDARYPROFESSION'][id]) {
+          // It's in the valid profession list
+          professions_array.push(profession.rank);
+          professionFound = true;
+        }
       }
     }
+    if (!professionFound){
+      professions_array.push('x');
+    }
   }
-  // If you don't have professions, insert placeholders.
-  while (professions_array.length < 5) {
-    professions_array.push('x');
-  }
-  
   return professions_array;
 }
 
