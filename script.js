@@ -195,11 +195,12 @@ function getProgression(realmName, characterName) {
     for (boss in raidArray) {
       var bossKillCount = raidArray[boss];
       if (bossKillCount != null) {
-        for (i = 0; i < tierNumbers.length; i++) {
-          tierNumbers[i] += (bossKillCount[i] > 0 ? 1 : 0);
-        }
-        progression_array.push(formatKillCount(bossKillCount));
+        tierNumbers[0] += (bossKillCount.mythic > 0 ? 1 : 0);
+        tierNumbers[1] += (bossKillCount.heroic > 0 ? 1 : 0);
+        tierNumbers[2] += (bossKillCount.normal > 0 ? 1 : 0);
+        tierNumbers[3] += (bossKillCount.lfr > 0 ? 1 : 0);
         
+        progression_array.push(formatKillCount(bossKillCount));
       } else {
         progression_array.push('x')
       }
