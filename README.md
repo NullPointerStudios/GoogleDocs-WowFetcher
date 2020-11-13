@@ -6,9 +6,9 @@ This script provides functions that automatically fetch data from the wow armory
 
 ### Prereqs
 
-You must have your own Wow API key ot use this script.
+You must have your own Wow API key to use this script.
 
-You can get your api key here: https://dev.battle.net/
+You can get an api key here: https://dev.battle.net/
 
 When you have your client id and secret, you can enter it on the "Settings" sheet.
 
@@ -39,3 +39,4 @@ getItems(realm, characterName)
 getOther(realm, characterName)
 
 Each of these functions retuens an array. You can then use the transpose function to display those arrays in the spreadsheet.
+You can change the region that the api uses by changing the api url to the appropriate region (for EU/Russ/Other)
