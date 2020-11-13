@@ -1,64 +1,8 @@
 KEY,VALUE
-RACE_1,Human
-RACE_2,Orc
-RACE_3,Dwarf
-RACE_4,Night Elf
-RACE_5,Undead
-RACE_6,Tauren
-RACE_7,Gnome
-RACE_8,Troll
-RACE_9,Goblin
-RACE_10,Blood Elf
-RACE_11,Draenei
-RACE_12,Worgen
-RACE_26,Pandaren
-RACE_14,Pandaren
-RACE_15,Pandaren
-RACE_27,Nightborne
-RACE_17,Highmountain Tauren
-RACE_18,Void Elf
-RACE_19,Lightforged Draenei
-RACE_20,Dark Iron Dwarf
-RACE_21,Mag'har Orc
-CLASS_1,Warrior
-CLASS_2,Paladin
-CLASS_3,Hunter
-CLASS_4,Rogue
-CLASS_5,Priest
-CLASS_6,Death Knight
-CLASS_7,Shaman
-CLASS_8,Mage
-CLASS_9,Warlock
-CLASS_10,Monk
-CLASS_11,Druid
-CLASS_12,Demon Hunter
-SLOT_0,head
-SLOT_1,neck
-SLOT_2,shoulder
-SLOT_4,chest
-SLOT_5,waist
-SLOT_6,legs
-SLOT_7,feet
-SLOT_8,wrist
-SLOT_9,hands
-SLOT_10,finger1
-SLOT_11,finger2
-SLOT_12,trinket1
-SLOT_13,trinket2
-SLOT_14,back
-SLOT_15,mainHand
-SLOT_16,offHand
-PRIMARYPROFESSION_0,Kul Tiran Herbalism
-PRIMARYPROFESSION_1,Kul Tiran Mining
-PRIMARYPROFESSION_2,Kul Tiran Skinning
-PRIMARYPROFESSION_3,Kul Tiran Alchemy
-PRIMARYPROFESSION_4,Kul Tiran Blacksmithing
-PRIMARYPROFESSION_5,Kul Tiran Enchanting
-PRIMARYPROFESSION_6,Kul Tiran Engineering
-PRIMARYPROFESSION_7,Kul Tiran Inscription
-PRIMARYPROFESSION_8,Kul Tiran Jewelcrafting
-PRIMARYPROFESSION_9,Kul Tiran Leatherworking
-PRIMARYPROFESSION_10,Kul Tiran Tailoring
-SECONDARYPROFESSION_0,Cooking
-SECONDARYPROFESSION_1,Fishing
-SECONDARYPROFESSION_2,Archaeology
+CLIENT_ID,<your id goes here>
+CLIENT_SECRET,<your secret goes here>
+BASE_URL,https://us.api.blizzard.com/profile
+AUTH_URL,https://us.battle.net/oauth/token
+MISSING_ENCHANT_SYMBOL,ᴱ
+MISSING_GEM_SYMBOL,ᴳ
+LOCALE,en_US
